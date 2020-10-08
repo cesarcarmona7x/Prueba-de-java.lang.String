@@ -121,6 +121,7 @@ public class Controller {
                             a.setContentText(ex.getLocalizedMessage());
                             a.setTitle("ERROR");
                             a.setHeaderText("Excepción en la ejecución");
+                            a.show();
                         }
                     }
                 }
