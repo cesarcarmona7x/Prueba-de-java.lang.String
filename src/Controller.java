@@ -10,7 +10,7 @@ public class Controller {
     @FXML ChoiceBox cbOpcionesString;
     @FXML
     protected void initialize(){
-        cbOpcionesString.getItems().addAll("charAt","compareTo","equalsIgnoreCase","indexOf","lastIndexOf","replace","replaceFirst","split","startsWith","substring");
+        cbOpcionesString.getItems().addAll("charAt","endsWith","compareTo","equalsIgnoreCase","indexOf","lastIndexOf","replace","replaceFirst","split","startsWith","substring");
     }
     public void ejecutarComandoDeString(ActionEvent event){
         String frase1=tfFrase1.getText();
@@ -31,28 +31,33 @@ public class Controller {
                     a.show();
                 }
                 break;
-            //compareTo
+            //endsWith
             case 1:
+                boolean endsWith=frase1.endsWith(frase2pt1);
+                lbResultado.setText("endsWith "+frase2pt1+": "+String.valueOf(endsWith));
+                break;
+            //compareTo
+            case 2:
                 int compareTo=frase1.compareTo(frase2pt1);
                 lbResultado.setText("compareTo "+frase2pt1+": "+String.valueOf(compareTo));
                 break;
             //equalsIgnoreCase
-            case 2:
+            case 3:
                 boolean equalsIgnoreCase=frase1.equalsIgnoreCase(frase2pt1);
                 lbResultado.setText("equalsIgnoreCase "+frase2pt1+": "+String.valueOf(equalsIgnoreCase));
                 break;
             //indexOf
-            case 3:
+            case 4:
                 int indexOf=frase1.indexOf(frase2pt1);
                 lbResultado.setText("indexOf "+frase2pt1+": "+String.valueOf(indexOf));
                 break;
             //lastIndexOf
-            case 4:
+            case 5:
                 int lastIndexOf=frase1.lastIndexOf(frase2pt1);
                 lbResultado.setText("lastIndexOf "+frase2pt1+": "+String.valueOf(lastIndexOf));
                 break;
             //replace
-            case 5:
+            case 6:
                 if(frase2pt1.length()!=0&&frase2pt2.length()!=0){
                     String replace=frase1.replace(frase2pt1,frase2pt2);
                     lbResultado.setText("replace "+frase2pt1+" por "+frase2pt2+": "+replace);
@@ -65,7 +70,7 @@ public class Controller {
                 }
                 break;
             //replaceFirst
-            case 6:
+            case 7:
                 if(frase2pt1.length()!=0&&frase2pt2.length()!=0){
                     String replaceFirst=frase1.replaceFirst(frase2pt1,frase2pt2);
                     lbResultado.setText("replaceFirst "+frase2pt1+" por "+frase2pt2+": "+replaceFirst);
@@ -78,7 +83,7 @@ public class Controller {
                 }
                 break;
             //split
-            case 7:
+            case 8:
                 if(frase2pt2.length()!=0){
                     int limit=Integer.parseInt(frase2pt2);
                     String[] split=frase1.split(frase2pt1,limit);
@@ -90,12 +95,12 @@ public class Controller {
                 }
                 break;
             //startsWith
-            case 8:
+            case 9:
                 boolean startsWith=frase1.startsWith(frase2pt1);
                 lbResultado.setText("startsWith "+frase2pt1+": "+String.valueOf(startsWith));
                 break;
             //substring
-            case 9:
+            case 10:
                 if(frase2pt1.length()!=0){
                     if(frase2pt2.length()!=0){
                         int pos1=Integer.valueOf(frase2pt1);
